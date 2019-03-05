@@ -3,7 +3,8 @@ module.exports = function (sequelize, DataTypes) {
         place: DataTypes.STRING,
         route: DataTypes.INTEGER,
         ableToPurchase: DataTypes.BOOLEAN,
-        event: DataTypes.BOOLEAN,      
+        event: DataTypes.BOOLEAN,
+        type: DataTypes.STRING,      
     });  
     
     return Location;
