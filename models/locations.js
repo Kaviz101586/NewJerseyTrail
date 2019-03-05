@@ -4,8 +4,8 @@ module.exports = function (sequelize, DataTypes) {
         route: DataTypes.INTEGER,
         ableToPurchase: DataTypes.BOOLEAN,
         event: DataTypes.BOOLEAN,
-        type: DataTypes.STRING,      
-    });  
-    
+        type: DataTypes.STRING,
+    });
+
     return Location;
 };
