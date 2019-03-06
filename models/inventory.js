@@ -5,6 +5,8 @@ module.exports = function (sequelize, DataTypes) {
     cash: DataTypes.INTEGER,
     gas: DataTypes.INTEGER,
     tire: DataTypes.BOOLEAN
+  }, {
+    timestamp: false,
   });
   
   Inventory.associate = function(models){

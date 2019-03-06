@@ -1,11 +1,13 @@
-module.exports = function(sequelize, DataType){
+module.exports = function (sequelize, DataType) {
     var User = sequelize.define('User', {
         name: DataType.STRING,
-        
-    });
 
-    User.associate = function(models){
-        User.hasMany(models.Inventory,{
+    }, {
+            timestamps: false,
+        });
+
+    User.associate = function (models) {
+        User.hasOne(models.Inventory, {
             onDelete: 'cascade',
         });
     };
