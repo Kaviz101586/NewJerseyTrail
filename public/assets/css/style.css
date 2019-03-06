@@ -1,3 +1,22 @@
+body {
+    height:100vh;    
+}
+
+li {
+    list-style-type: none;
+}
+
+.gameImage {
+    background-color:black;
+    height:300px;
+    width:100%;
+}
+
+.number-input {
+    height: 20px;
+    width:50px
+}
+
 #progress-page {
     padding-top: 50px;
 }
