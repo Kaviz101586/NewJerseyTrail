@@ -1,6 +1,6 @@
 module.exports = function (sequelize, DataTypes) {
     var SpecificEvents = sequelize.define("SpecificEvents", {
-        type: DataTypes.STRING,
+        event: DataTypes.STRING,
         place: DataTypes.STRING,
         route: DataTypes.INTEGER,  
     });  
