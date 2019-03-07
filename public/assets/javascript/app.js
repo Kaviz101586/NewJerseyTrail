@@ -10,50 +10,78 @@ $(document).ready(function () {
         $("#welcome-page").hide();
         $("#info-page").show();
     });
-    
-    $("#store-button").on("click", function(){
+
+    $("#store-button").on("click", function () {
         $("#info-page").hide();
         $("#storeFront").show();
     });
-    
-    $("#startGame-button").on("click", function(){
-        $("#storeFront").hide();
-        $("#gamePlay").show();
-        var intervalId = setInterval(travel, 1000);
+
+    $("#startGame-button").on("click", function () {
+        initializeTravel();
     });
-    
+
     initializePage();
 
+    var probability = function (n) {
+        return !!n && Math.random() <= n;
+    };
+
+    var timer = 5;
+
+    function initializeTravel() {
+        $("#randomEvent").hide();
+        $("#storeFront").hide();
+        $("#gamePlay").show();
+        var intervalId = setInterval(travelUpdate, 1500);
+
+    };
+
+    var distance = 100;
+    var food = 100;
+    var water = 100;
+    var gas = 100;
 
 
-var timer = 5;
+    function travelUpdate() {
+        if (timer === 0) {
+            eventRandom();
+        }
+        else {
+            console.log(timer);
+            timer--;
 
-function travel() {
-    timer --;
 
-    distance - 5;
-    food - 1;
-    water - 1;
-    gas - 2;
+            distance -= 5;
+            food -= 1;
+            water -= 1;
+            gas -= 2;
 
-    $("#food-remaining").text("Food: ") + food;
-    $("#water-remaining").text("Water: ") + water;
-    $("#gas-remaining").text("Gas: ") + gas;
-    $("#distance-remaining").text("Distance Remaining: ") + distance;
+            $("#food-remaining").text(food);
+            $("#water-remaining").text(water);
+            $("#gas-remaining").text(gas);
+            $("#distance-remaining").text(distance);
+        }
+    };
 
-    if (timer == 0) {
-        eventRandom();
-    }
-};
+    function eventRandom() {
+        var trueFalse = probability(.3);
 
-function eventRandom() {
-    // given a certain probability, an event will be called.
-    // if the event is not called, timer resets to 5 (or whatever interval is decided)
-    // if the event is called, 
-};
+        if (trueFalse) {
+            displayEvent();
+            // call function
+        }
 
-function displayEvent() {
-    $("#gamePlay").show().append();   
-};
+        else {
+            timer = 5;
+
+        }
+        // given a certain probability, an event will be called.
+        // if the event is not called, timer resets to 5 (or whatever interval is decided)
+        // if the event is called, 
+    };
+
+    function displayEvent() {
+        $("#randomEvent").show().append("Text and stuff");
+    };
 
 })
