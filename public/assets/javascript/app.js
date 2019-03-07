@@ -1,6 +1,6 @@
 $(document).ready(function () {
     function initializePage() {
-        $("#progress-page").hide();
+        $("#randomEvent").hide();
         $("#info-page").hide();
         $("#storeFront").hide();
         $("#gamePlay").hide();
