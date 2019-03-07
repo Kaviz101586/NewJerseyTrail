@@ -17,5 +17,11 @@
   "bugs": {
     "url": "https://github.com/EMalley/NewJerseyTrail/issues"
   },
-  "homepage": "https://github.com/EMalley/NewJerseyTrail#readme"
+  "homepage": "https://github.com/EMalley/NewJerseyTrail#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mysql": "^2.16.0",
+    "mysql2": "^1.6.5",
+    "sequelize": "^4.43.0"
+  }
 }
