@@ -18,7 +18,7 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 </head>
-<!-- STart Menu -->
+<!-- Start Menu -->
 <div id="welcome-page">
     <div class="container">
         <div class="row">
@@ -47,10 +47,11 @@
         </div>
     </footer>
 </div>
+<!-- ================================================================================= -->
 
 <!-- Information about Game -->
 <div id="info-page">
-    <div class="container vertical-center-row">
+    <div class="container vertical-center-row py-3">
         <div class="jumbotron">
             <div class="row">
                 <div class="col-md-12 text-center">
@@ -65,12 +66,53 @@
                         and an empty stomach. Before you can begin your trip you first must buy some supplies for the
                         long trip ahead of you.<br>Good Luck!
                     </p>
-                    <button type="button" class="btn btn-primary btn-lg" id="begin-button">Begin Journey</button>
+                    <div class="buttonHolder text-center">
+                        <button type="button" class="btn btn-primary btn-lg" id="store-button">Continue to store
+                            front</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<!-- ================================================================================= -->
+
+<!-- STORE FRONT -->
+<div id="storeFront">
+    <div class="container">
+        <div class="jumbotron py-3">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h2>Welcome to the store</h2>
+                    <h5>Purchase the items you think will be necessary for your journey.</h5>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-6">
+                    <ul class="float-right">
+                        <li>Gas</li>
+                        <li>Food</li>
+                        <li>Water</li>
+                        <li>Spare Tire(s)</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <ul>
+                        <li><input type="number" class="number-input"></li>
+                        <li><input type="number" class="number-input"></li>
+                        <li><input type="number" class="number-input"></li>
+                        <li><input type="number" class="number-input"></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="buttonHolder text-center">
+                <button type="button" class="btn btn-primary btn-lg" id="startGame-button">Begin Journey</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ================================================================================= -->
 
 <!-- Loading page -->
 <div class="container align-center" id="progress-page">
@@ -83,6 +125,43 @@
 
     <div class="row">
         <div class="col-md-12 align-center" id="stat-div">
+        </div>
+    </div>
+</div>
+<!-- ================================================================================= -->
+
+<!-- Gameplay -->
+<div id="gamePlay">
+    <div class="container">
+        <div class="gameImage"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h3>Trip Status/user statistics</h3>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="userStats float-right">
+                        <ul>
+                            <li>Gas:</li>
+                            <li>Food:</li>
+                            <li>Water:</li>
+                            <li>Tire(s):</li>
+                            <li>Remaining Cash:</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <ul>
+                        <li>remaining</li>
+                        <li>remaining</li>
+                        <li>remaining</li>
+                        <li>remaining</li>
+                        <li>remaining</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
 </div>

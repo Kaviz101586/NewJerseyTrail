@@ -2,23 +2,26 @@ $(document).ready(function () {
     function initializePage() {
         $("#progress-page").hide();
         $("#info-page").hide();
+        $("#storeFront").hide();
+        $("#gamePlay").hide();
     };
-    initializePage();
+
     $("#start-button").on("click", function () {
         $("#welcome-page").hide();
         $("#info-page").show();
     });
     
-    $("#begin-button").on("click", function(){
+    $("#store-button").on("click", function(){
         $("#info-page").hide();
-        $("#progress-page").show();
+        $("#storeFront").show();
     });
-
-    function loadPageDisplay() {
-        $("#img-div").html("<img src='assets/images/driving-cat.gif'></img>");
-    }
-    loadPageDisplay();
-
+    
+    $("#startGame-button").on("click", function(){
+        $("#storeFront").hide();
+        $("#gamePlay").show();
+    });
+    
+    initializePage();
 })
 
 
