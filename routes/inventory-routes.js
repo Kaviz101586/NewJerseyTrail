@@ -9,6 +9,18 @@ module.exports = function (app) {
             res.json(data);
         });
     });
+
+    // route to a specific id
+    app.get("/api/inventory/:id", function (req, res) {
+        db.Inventory.findAll({
+            where: {
+                id: req.params.id
+            }
+        }).then(function (data) {
+            console.log(data);
+            res.json(data);
+        });
+    });
     // route to post to the db
     app.post("/api/inventory", function (req, res) {
         db.Inventory.create(req.body).then(function (data) {
