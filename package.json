@@ -18,12 +18,17 @@
     "url": "https://github.com/EMalley/NewJerseyTrail/issues"
   },
   "homepage": "https://github.com/EMalley/NewJerseyTrail#readme",
+<<<<<<< HEAD
   "devDependencies": {
     "nodemon": "^1.18.10"
   },
   "dependencies": {
     "express": "^4.16.4",
     "mysql2": "^1.6.5",
+=======
+  "dependencies": {
+    "express": "^4.16.4",
+>>>>>>> master
     "sequelize": "^4.43.0"
   }
 }
