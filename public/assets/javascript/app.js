@@ -18,6 +18,7 @@ $('.carousel').carousel({
         $("#info-page").show();
     });
     
+<<<<<<< HEAD
     // $("#store-button").on("click", function(){
     //     $("#info-page").hide();
     //     $("#storeFront").show();
@@ -25,6 +26,14 @@ $('.carousel').carousel({
     
     $("#startGame-button").on("click", function(){
         $("#info-page").hide();
+=======
+    $("#store-button").on("click", function(){
+        $("#info-page").hide();
+        $("#storeFront").show();
+    });
+    
+    $("#startGame-button").on("click", function(){
+>>>>>>> 817b16057f9730cfdfacbcb3773f4fa27bfeafea
         $("#storeFront").hide();
         $("#gamePlay").show();
         var intervalId = setInterval(travel, 1000);
@@ -39,10 +48,17 @@ var timer = 5;
 function travel() {
     timer --;
 
+<<<<<<< HEAD
     // distance - 5;
     food -= 1;
     water -= 1;
     gas -= 2;
+=======
+    distance - 5;
+    food - 1;
+    water - 1;
+    gas - 2;
+>>>>>>> 817b16057f9730cfdfacbcb3773f4fa27bfeafea
 
     $("#food-remaining").text("Food: ") + food;
     $("#water-remaining").text("Water: ") + water;

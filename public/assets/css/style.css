@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body{
     background-color: black
 }
@@ -24,27 +25,37 @@ body{
 h1, h5, p{
     color: #848eb0;
     -webkit-text-stroke: 5px, #ffffff;
+=======
+body {
+    height:100vh;    
+>>>>>>> 817b16057f9730cfdfacbcb3773f4fa27bfeafea
 }
 
 li {
     list-style-type: none;
 }
 
+<<<<<<< HEAD
 .carosuel-item {
     width:1224px;
     height:564;
 }
 
+=======
+>>>>>>> 817b16057f9730cfdfacbcb3773f4fa27bfeafea
 .gameImage {
     background-color:black;
     height:300px;
     width:100%;
 }
 
+<<<<<<< HEAD
 .jumbotron {
     background: transparent !important
 }
 
+=======
+>>>>>>> 817b16057f9730cfdfacbcb3773f4fa27bfeafea
 .number-input {
     height: 20px;
     width:50px
