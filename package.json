@@ -3,6 +3,13 @@
   "version": "1.0.0",
   "description": "A mock version of Oregeon Trail, but in New Jersey!",
   "main": "server.js",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mysql": "^2.16.0",
+    "mysql2": "^1.6.5",
+    "sequelize": "^4.43.0"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
