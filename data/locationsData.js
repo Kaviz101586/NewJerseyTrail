@@ -12,15 +12,13 @@ function Location(place, route, ableToPurchase, event, type) {
 
 var locations = 
     {
-    1: new Location ("Newark Airport", 1, "N", "Global", "Urban"),
-    2: new Location ("Turnpike Exit", 1, "Y", "Global", "Highway"),
-    3: new Location ("Long Beach Island", 1, "Y", "Specific", "Rural"),
-    4: new Location ("Seaside Heights", 1, "N", "Global","Rural"),
-    5: new Location ("Asbury Park", 1, "Y", "Specific","Rural"),
-    6: new Location ("Neptune", 1, "Y", "Global","Rural"),
-    7: new Location ("PNC Bank Arts Center", 1, "Y", "Specific", "Rural"),
-    8: new Location ("Atlantic City", 1, "Y", "Specific", "Urban"),
-    9: new Location ("Ocean City", 1, "N", "Global", "Rural")
+    1: new Location ("Patterson", 1, "N", "Global", "Urban"),
+    2: new Location ("Newark", 1, "Y", "Global", "Highway"),
+    3: new Location ("Asbury Park", 1, "Y", "Specific","Rural"),
+    4: new Location ("Toms River", 1, "Y", "Global","Rural"),
+    5: new Location ("PNC Bank Arts Center", 1, "Y", "Specific", "Rural"),
+    6: new Location ("Atlantic City", 1, "Y", "Specific", "Urban"),
+    7: new Location ("Ocean City", 1, "N", "Global", "Rural")
     };
 
 var locationsArray = Object.values(locations)
