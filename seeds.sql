@@ -1,3 +1,6 @@
+
+INSERT INTO user (name) VALUES ("Dan")
+=======
 INSERT INTO inventories (food, water, gas, cash, tire)
 VALUES (100, 100, 100, 200, true)
 
@@ -13,3 +16,4 @@ VALUES
 ("PNC Bank Arts Center", 1, "Y", "Specific", "Rural"), 
 ("Atlantic City", 1, "Y", "Specific", "Urban"), 
 ("Ocean City", 1, "N", "Global/Specific", "Rural")
+

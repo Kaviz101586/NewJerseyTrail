@@ -25,6 +25,9 @@
     "url": "https://github.com/EMalley/NewJerseyTrail/issues"
   },
   "homepage": "https://github.com/EMalley/NewJerseyTrail#readme",
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  },
   "dependencies": {
     "express": "^4.16.4",
     "mysql2": "^1.6.5",
