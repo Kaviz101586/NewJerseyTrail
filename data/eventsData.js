@@ -10,7 +10,9 @@ function Events (name, event, place, route, action) {
 };
 
 this.runEvent = function () {
-    if (name="")
+    if (name="") {
+        
+    }
 };
 
 var events = 
