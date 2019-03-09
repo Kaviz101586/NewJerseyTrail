@@ -48,38 +48,40 @@ $(document).ready(function () {
                 $("#water-remaining").text("Water: ") + water;
                 $("#gas-remaining").text("Gas: ") + gas;
                 $("#distance-remaining").text("Distance Remaining: ") + distance;
-                eventRandom();
             }
+            eventRandom();
         };
 
 
         // global Variables
         var randomEvents = ['flat tire', 'pulled over', 'traffic jam', 'bathroom break', 'out of fuel'];
-        var timer = 300;
+        var timer = 3000;
         var tire = 1; //sets tire vaule to true
         var timeFactor = 5
 
-        function eventRandom() {
-            var randomizer = randomEvents[Math.floor(Math.random()*randomEvents.length)];
-            console.log(randomizer)
-            switch (randomizer) {
-                case 'flat tire': 
-                // replace tire if you have one OR wait for AAA
-                if (tire) {
-                    tire = 0 //sets value to false
-                    confirm("Do you want to wait for AAA or use your spare tire?");
-                }else {
-                    alert("You must wait for AAA");
-                }
-                break;
-                
-                default:
-                break;
-        }
+        // function eventRandom() {
+        //     var randomizer = randomEvents[Math.floor(Math.random()*randomEvents.length)];
+        //     console.log(randomizer)
+        //     switch (randomizer) {
+        //         case 'flat tire': 
+        //         // replace tire if you have one OR wait for AAA
+        //         if (tire) {
+        //             tire = 0 //sets value to false
+        //             confirm("Do you want to wait for AAA or use your spare tire?");
+        //         }else {
+        //             alert("You must wait for AAA");
+        //         }
+        //         break;
+        //         case 'pulled over':
+        //             alert("you have been pulled over! You lost time and have to pay a fine of $150")
+        //         break;
+        //         case 'traffic jam': 
+
+        // }
         // given a certain probability, an event will be called.
         // if the event is not called, timer resets to 5 (or whatever interval is decided)
         // if the event is called, 
-    };
+    // };
 
     function displayEvent() {
         $("#gamePlay").show().append();
