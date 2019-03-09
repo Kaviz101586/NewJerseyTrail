@@ -4,6 +4,14 @@ $(document).ready(function () {
         interval: 3000
     })
 
+
+        // global Variables
+        var randomEvents = ['flat tire', 'pulled over', 'traffic jam', 'bathroom break', 'out of fuel'];
+        var timer = 300;
+        var tire = 1; //sets tire vaule to true
+        var timeFactor = 5;
+        var intervalId; 
+
     // Game Logic
     function initializePage() {
         $("#randomEvent").hide();
@@ -15,6 +23,7 @@ $(document).ready(function () {
     $("#start-button").on("click", function () {
         $("#welcome-page").hide();
         $("#info-page").show();
+        $(".timer").show();
     });
     
     // $("#store-button").on("click", function(){
@@ -23,16 +32,21 @@ $(document).ready(function () {
         // });
         
         $("#startGame-button").on("click", function () {
+
+            var intervalId;
             $("#info-page").hide();
             $("#storeFront").hide();
             $("#gamePlay").show();
+
             var intervalId = setInterval(travel, 1300);
+
         });
         
         initializePage();
         
         
         function travel() {
+
             // timer--;
             momentTimer = moment.utc(timer*1000).format("mm:ss")
             timer -= 1;
@@ -44,6 +58,7 @@ $(document).ready(function () {
                 $("#water-remaining").text(water);
                 $("#gas-remaining").text(gas);
                 $("#distance-remaining").text(distance);
+
             
             if (timeFactor == 0) {
 
@@ -55,6 +70,7 @@ $(document).ready(function () {
                 
                 eventRandom();
             }
+            locationTracker++;
         };
 
 
@@ -68,6 +84,7 @@ $(document).ready(function () {
         var gas = 100;
         var distance = 500;
         var momentTimer;
+
 
         function eventRandom() {
             var randomizer = randomEvents[Math.floor(Math.random()*randomEvents.length)];

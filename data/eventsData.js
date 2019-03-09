@@ -1,13 +1,13 @@
-// NOT WORKING YET - dont use
+// // NOT WORKING YET - dont use
 
 
-function Events (name, event, place, route, action) {
-    this.name = name,
-    this.event = event,
-    this.place = place,
-    this.route = route
-    this.action = action
-};
+// function Events (name, event, place, route, action) {
+//     this.name = name,
+//     this.event = event,
+//     this.place = place,
+//     this.route = route
+//     this.action = action
+// };
 
 this.runEvent = function () {
     if (name="") {
@@ -15,7 +15,8 @@ this.runEvent = function () {
     }
 };
 
-var events = 
-    {
-        1: new Event ("Pothole", "Global", "", 1,  )
-    }
+
+// var events = 
+//     {
+//         1: new Event ("Pothole", "Global", "", 1,  )
+//     }
