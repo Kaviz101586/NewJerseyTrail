@@ -1,4 +1,8 @@
 $(document).ready(function () {
+    // app.get('api/inventory', function(req,res){
+    //    console.log(res.json);
+
+    // })
     // carosuel for front page
     $('.carousel').carousel({
         interval: 3000
@@ -45,6 +49,7 @@ $(document).ready(function () {
         initializePage();
         
         
+   
         function travel() {
 
             // timer--;
@@ -86,6 +91,8 @@ $(document).ready(function () {
         var randomEvents = ['flat tire', 'pulled over', 'traffic jam', 'bathroom break', 'out of fuel'];
 
         var timer = 300;
+
+
         var tire = 1; //sets tire value to true
         var timeFactor = 5;
         var food = 100;
@@ -93,6 +100,7 @@ $(document).ready(function () {
         var gas = 100;
         var distance = 500;
         var momentTimer;
+
 
 
         // function eventRandom() {
