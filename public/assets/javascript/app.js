@@ -4,6 +4,14 @@ $(document).ready(function () {
         interval: 3000
     })
 
+
+        // global Variables
+        var randomEvents = ['flat tire', 'pulled over', 'traffic jam', 'bathroom break', 'out of fuel'];
+        var timer = 300;
+        var tire = 1; //sets tire vaule to true
+        var timeFactor = 5;
+        var intervalId; 
+
     // Game Logic
     function initializePage() {
         $("#randomEvent").hide();
@@ -15,6 +23,7 @@ $(document).ready(function () {
     $("#start-button").on("click", function () {
         $("#welcome-page").hide();
         $("#info-page").show();
+        $(".timer").show();
     });
     
     // $("#store-button").on("click", function(){
@@ -23,10 +32,12 @@ $(document).ready(function () {
         // });
         
         $("#startGame-button").on("click", function () {
+
+            var intervalId;
             $("#info-page").hide();
             $("#storeFront").hide();
             $("#gamePlay").show();
-            var intervalId = setInterval(travel, 1000);
+            intervalId = setInterval(travel, 1000);
         });
         
         initializePage();
@@ -36,7 +47,7 @@ $(document).ready(function () {
             timer--;
             timeFactor --;
             console.log(timer)
-            $(".timer").text(moment(timer).format("mm:ss"));
+            $(".timer").html(moment(timer).format("mm:ss"));
             
             if (timeFactor == 0) {
                 // distance - 5;
@@ -50,14 +61,10 @@ $(document).ready(function () {
                 $("#distance-remaining").text("Distance Remaining: ") + distance;
                 eventRandom();
             }
+            locationTracker++;
         };
 
 
-        // global Variables
-        var randomEvents = ['flat tire', 'pulled over', 'traffic jam', 'bathroom break', 'out of fuel'];
-        var timer = 300;
-        var tire = 1; //sets tire vaule to true
-        var timeFactor = 5
 
         function eventRandom() {
             var randomizer = randomEvents[Math.floor(Math.random()*randomEvents.length)];
