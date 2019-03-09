@@ -17,16 +17,15 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+    <!-- moment.js -->
+    <script src="https://rawgit.com/moment/moment/2.2.1/min/moment.min.js"></script>
     <!-- google fonts -->
-<link href="https://fonts.googleapis.com/css?family=Bangers|Orbitron|Press+Start+2P" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bangers|Orbitron|Press+Start+2P" rel="stylesheet">
 
 </head>
-<<<<<<< HEAD
 <nav class="navbar navbar-dark bg-dark nav-justify-content-center">
     <span class="navbar-brand h1">The New Jersey Trail</span>
 </nav>
-=======
->>>>>>> 817b16057f9730cfdfacbcb3773f4fa27bfeafea
 <!-- Start Menu -->
 <div id="welcome-page">
     <div class="container">
@@ -53,7 +52,7 @@
         <div class="container align-center fixed-bottom py-5">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <p>A modern version of the classic. The Oregon Trail.</p>
+                    <p>A modern version of the classic game; The Oregon Trail.</p>
                     <button type="button" class="btn btn-lg" id="start-button">Start Game</button>
                 </div>
             </div>
@@ -72,7 +71,6 @@
                 </div>
                 <div class="col-md-12 float-left"><br>
                     <h5>You are about to embark on an epic journey through the state of New Jersey!</h5> <br>
-<<<<<<< HEAD
                     <p>
                         It has been over a year since you have been planning to attend your friends wedding. As the sun
                         rises on the big day, your alarm remains silent. Hours later you awake to find that you have
@@ -80,29 +78,13 @@
                         bottom of the state in Cape May.
                         <br>
                         Your Journey Begins in Ramsey NJ, the clock is ticking so get going!
-=======
-                    <p> 
-                        It has been over a year since you have been planning to attend your friends wedding. As the sun
-                        rises on the big day, your alarm remains silent. Hours later you awake to find that you have
-                        overselpt and are now in a race against the clock to arrive on time to the ceremony down at the
-                        bottom of the state in Cape May. 
-                        <br> 
-                        Your Journey Begins in Ramsey NJ, with a full tank of gas
-                        and an empty stomach. Before you can begin your trip you first must buy some supplies for the
-                        long trip ahead of you.
->>>>>>> 817b16057f9730cfdfacbcb3773f4fa27bfeafea
                         <br>
                         Good Luck!
                     </p>
                     <div class="buttonHolder text-center">
-<<<<<<< HEAD
                         <button type="button" class="btn btn-lg" id="startGame-button">Begin
                             Journey</button>
                         <!-- <button type="button" class="btn btn-lg" id="store-button">Continue</button> -->
-=======
-                        <button type="button" class="btn btn-primary btn-lg" id="store-button">Continue to store
-                            front</button>
->>>>>>> 817b16057f9730cfdfacbcb3773f4fa27bfeafea
                     </div>
                 </div>
             </div>
@@ -114,11 +96,7 @@
 <!-- STORE FRONT -->
 <div id="storeFront">
     <div class="container">
-<<<<<<< HEAD
         <div class="jumbotron">
-=======
-        <div class="jumbotron py-3">
->>>>>>> 817b16057f9730cfdfacbcb3773f4fa27bfeafea
             <div class="row">
                 <div class="col-md-12 text-center">
                     <h2>Welcome to the store</h2>
@@ -145,17 +123,12 @@
                 </div>
             </div>
             <div class="buttonHolder text-center">
-<<<<<<< HEAD
                 <button type="button" class="btn btn-lg" id="startGame-button">Begin Journey</button>
-=======
-                <button type="button" class="btn btn-primary btn-lg" id="startGame-button">Begin Journey</button>
->>>>>>> 817b16057f9730cfdfacbcb3773f4fa27bfeafea
             </div>
         </div>
     </div>
 </div>
 <!-- ================================================================================= -->
-<<<<<<< HEAD
 
 <!-- Events Page -->
 <div class="container align-center" id="randomEvent">
@@ -169,39 +142,19 @@
     </div>
 </div>
 
-=======
-
-<!-- Events Page -->
-<div class="container align-center" id="randomEvent">
-    <div class="jumbotron">
-        <div class="row">
-            <div class="col-md-12 align-center">
-                <div id="img-div"></div>
-                <div id="event"></div>
-            </div>
-        </div>
-    </div>
-</div>
-
->>>>>>> 817b16057f9730cfdfacbcb3773f4fa27bfeafea
 <!-- ================================================================================= -->
 
 <!-- Gameplay -->
 <div id="gamePlay">
+    <div class="timer text-center">00:00</div>
     <div class="container">
         <div class="gameImage"></div>
     </div>
     <div class="row">
         <div class="col-md-12 text-center">
-<<<<<<< HEAD
             <h5 class="userStats">Trip Status/user statistics</h5>
         </div>
         <div class="container border">
-=======
-            <h3>Trip Status/user statistics</h3>
-        </div>
-        <div class="container">
->>>>>>> 817b16057f9730cfdfacbcb3773f4fa27bfeafea
             <div class="row">
                 <div class="col-md-6">
                     <div class="userStats float-right">
@@ -215,7 +168,6 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-<<<<<<< HEAD
                     <div class="userStats float-left">
                         <ul>
                             <li id="gas-remaining">remaining</li>
@@ -225,15 +177,6 @@
                             <li id="cash-remaining">remaining</li>
                         </ul>
                     </div>
-=======
-                    <ul>
-                        <li id = "gas-remaining">remaining</li>
-                        <li id = "food-remaining">remaining</li>
-                        <li id = "water-remaining">remaining</li>
-                        <li id = "tires-remaining">remaining</li>
-                        <li id = "cash-remaining">remaining</li>
-                    </ul>
->>>>>>> 817b16057f9730cfdfacbcb3773f4fa27bfeafea
                 </div>
             </div>
         </div>
@@ -243,4 +186,5 @@
 
 </body>
 <script type="text/javascript" src="assets/javascript/app.js"></script>
+
 </html>
