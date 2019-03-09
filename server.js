@@ -27,6 +27,9 @@ require("./routes/inventory-routes")(app);
 require("./routes/user-api-routes")(app);
 
 
+require("./routes/locations-api-routes")(app);
+
+
 
 
 // Syncing our sequelize models and then starting our Express app
