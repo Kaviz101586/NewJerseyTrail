@@ -37,33 +37,53 @@ $(document).ready(function () {
             $("#info-page").hide();
             $("#storeFront").hide();
             $("#gamePlay").show();
-            intervalId = setInterval(travel, 1000);
+
+            var intervalId = setInterval(travel, 1300);
+
         });
         
         initializePage();
         
         
         function travel() {
-            timer--;
-            timeFactor --;
-            console.log(timer)
-            $(".timer").html(moment(timer).format("mm:ss"));
+
+            // timer--;
+            momentTimer = moment.utc(timer*1000).format("mm:ss")
+            timer -= 1;
+            timeFactor -= 1;
+
+            $(".timer").html(momentTimer);
+            
+            $("#food-remaining").text(food);
+                $("#water-remaining").text(water);
+                $("#gas-remaining").text(gas);
+                $("#distance-remaining").text(distance);
+
             
             if (timeFactor == 0) {
-                // distance - 5;
-                timeFactor = 5;
+
+                distance - 5;
                 food -= 1;
                 water -= 1;
                 gas -= 2;
-                $("#food-remaining").text("Food: ") + food;
-                $("#water-remaining").text("Water: ") + water;
-                $("#gas-remaining").text("Gas: ") + gas;
-                $("#distance-remaining").text("Distance Remaining: ") + distance;
+                timeFactor = 5;
+                
                 eventRandom();
             }
             locationTracker++;
         };
 
+
+        // global Variables
+        var randomEvents = ['flat tire', 'pulled over', 'traffic jam', 'bathroom break', 'out of fuel'];
+        var timer = 300;
+        var tire = 1; //sets tire value to true
+        var timeFactor = 5;
+        var food = 100;
+        var water = 100;
+        var gas = 100;
+        var distance = 500;
+        var momentTimer;
 
 
         function eventRandom() {

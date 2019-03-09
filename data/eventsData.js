@@ -9,9 +9,12 @@
 //     this.action = action
 // };
 
-// this.runEvent = function () {
-//     if (name="")
-// };
+this.runEvent = function () {
+    if (name="") {
+        
+    }
+};
+
 
 // var events = 
 //     {
