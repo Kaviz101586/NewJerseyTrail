@@ -1,4 +1,8 @@
 $(document).ready(function () {
+    // app.get('api/inventory', function(req,res){
+    //    console.log(res.json);
+
+    // })
     // carosuel for front page
     $('.carousel').carousel({
         interval: 3000
@@ -32,6 +36,7 @@ $(document).ready(function () {
         initializePage();
         
         
+   
         function travel() {
             timer--;
             timeFactor --;
@@ -58,6 +63,7 @@ $(document).ready(function () {
         var timer = 300;
         var tire = 1; //sets tire vaule to true
         var timeFactor = 5
+    
 
         function eventRandom() {
             var randomizer = randomEvents[Math.floor(Math.random()*randomEvents.length)];

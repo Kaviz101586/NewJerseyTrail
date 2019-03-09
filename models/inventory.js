@@ -9,13 +9,13 @@ module.exports = function (sequelize, DataTypes) {
     timestamp: false,
   });
   
-  Inventory.associate = function(models){
-    Inventory.belongsTo(models.User, {
-      foreignKey:{
-        allowNull: false,
-      }
-    });
-  };
+  // Inventory.associate = function(models){
+  //   Inventory.belongsTo(models.User, {
+  //     foreignKey:{
+  //       allowNull: false,
+  //     }
+  //   });
+  // };
   return Inventory;
 };
 
