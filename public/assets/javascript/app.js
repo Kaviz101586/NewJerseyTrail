@@ -9,6 +9,7 @@ $(document).ready(function () {
     })
 
 
+
         // global Variables
         var randomEvents = ['flat tire', 'pulled over', 'traffic jam', 'bathroom break', 'out of fuel'];
         var timer = 300;
@@ -52,7 +53,7 @@ $(document).ready(function () {
    
         function travel() {
 
-            // timer--;
+            // timer
             momentTimer = moment.utc(timer*1000).format("mm:ss")
             timer -= 1;
             timeFactor -= 1;
@@ -77,14 +78,14 @@ $(document).ready(function () {
                 $("#gas-remaining").text("Gas: ") + gas;
                 $("#distance-remaining").text("Distance Remaining: ") + distance;
             }
-            eventRandom();
+            // eventRandom();
 
                 timeFactor = 5;
                 
-                eventRandom();
+                // eventRandom();
             }
             locationTracker++;
-        };
+        });
 
 
         // global Variables
@@ -127,8 +128,8 @@ $(document).ready(function () {
         // if the event is called, 
     // };
 
-    function displayEvent() {
-        $("#gamePlay").show().append();
-    };
+    // function displayEvent() {
+    //     $("#gamePlay").show().append();
+    // };
 
-})
+// })
