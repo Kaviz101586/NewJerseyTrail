@@ -20,17 +20,13 @@
 //         return data.decrement('water', {by: 2});
 
 //     })
-
-
-
-
 // });
 
-$('#startGame-button').on('click', function(event){
-    event.preventDefault();
+// $('#startGame-button').on('click', function(event){
+//     event.preventDefault();
 
-    gameOver();
-})
+//     gameOver();
+// })
 
 // $('#startGame-button').on('click', function (event) {
 //     event.preventDefault();
@@ -58,6 +54,7 @@ $('#startGame-button').on('click', function(event){
 //     console.log(newInventory);
 // })
 
+<<<<<<< HEAD
 function gameOver() {
     var newInventory = {
 <<<<<<< HEAD
@@ -81,6 +78,20 @@ function gameOver() {
         console.log(data);
     })
 }
+=======
+// function gameOver() {
+//     var newInventory = {
+//         userName: $('#inputName').val().trim(),
+//         food: food,
+//         water: water,
+//         gas: gas,
+//         tire: tire
+//     }
+//     $.post('api/inventory', newInventory).then(function (data) {
+//         console.log(data);
+//     })
+// }
+>>>>>>> master
     // let name = newUser.name;
     // let food = newInventory.food;
     // let water = newInventory.water;
