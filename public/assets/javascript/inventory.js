@@ -41,14 +41,14 @@ $('#startGame-button').on('click', function (event) {
         tire: true
     };
     
-    $.post('api/user', newUser).then(function (data) {
+    $.post('/api/user', newUser).then(function (data) {
         console.log(data);
     })
 
 
     // console.log(newUser);
     // console.log(newInventory);
-    $.post('api/inventory', newInventory).then(function (data) {
+    $.post('/api/inventory', newInventory).then(function (data) {
         console.log(data);
     })
 })
