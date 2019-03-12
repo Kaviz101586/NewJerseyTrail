@@ -23,6 +23,7 @@ module.exports = function (app) {
     });
     // route to post to the db
     app.post("/api/inventory", function (req, res) {
+        console.log(req.body);
         db.Inventory.create(req.body).then(function (data) {
             console.log(data);
             res.json(data);
@@ -30,7 +31,7 @@ module.exports = function (app) {
     });
 
     // route for updating inventory
-    app.put("/api/inventory", function (req, res) {
+    app.put("/api/inventory/", function (req, res) {
         db.Inventory.update(req.body, {
             where: {
                 id: req.body.id,

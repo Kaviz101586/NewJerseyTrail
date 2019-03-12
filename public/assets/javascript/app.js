@@ -18,7 +18,20 @@ $(document).ready(function () {
     //    console.log(res.json);
     // })
 
+<<<<<<< HEAD
     // Hide all divs initially so as to only begin displaying one at a time
+=======
+
+
+        // global Variables
+        var randomEvents = ['flat tire', 'pulled over', 'traffic jam', 'bathroom break', 'out of fuel'];
+        var timer = 300;
+        var tire = 1; //sets tire vaule to true
+        var timeFactor = 5;
+        var intervalId; 
+
+    // Game Logic
+>>>>>>> origin
     function initializePage() {
         $("#randomEvent").hide();
         $("#info-page").hide();
@@ -54,13 +67,33 @@ $(document).ready(function () {
         // });
         
    
+<<<<<<< HEAD
     function travel() {
+=======
+        function travel() {
+
+            // timer
+            momentTimer = moment.utc(timer*1000).format("mm:ss")
+            timer -= 1;
+            timeFactor -= 1;
+
+            $(".timer").html(momentTimer);
+            
+            $("#food-remaining").text(food);
+                $("#water-remaining").text(water);
+                $("#gas-remaining").text(gas);
+                $("#distance-remaining").text(distance);
+
+            
+            if (timeFactor == 0) {
+>>>>>>> origin
 
         // timer--;
         momentTimer = moment.utc(timer*1000).format("mm:ss")
         timer -= 1;
         timeFactor -= 1;
 
+<<<<<<< HEAD
         $(".timer").html(momentTimer);
         
         $("#food-remaining").text(food);
@@ -69,6 +102,61 @@ $(document).ready(function () {
         $("#tires-remaining").text(tire);
         $("#cash-remaining").text(cash);
         $("#distance-remaining").text(distance);
+=======
+                $("#food-remaining").text("Food: ") + food;
+                $("#water-remaining").text("Water: ") + water;
+                $("#gas-remaining").text("Gas: ") + gas;
+                $("#distance-remaining").text("Distance Remaining: ") + distance;
+            }
+            // eventRandom();
+
+                timeFactor = 5;
+                
+
+                // eventRandom();
+            }
+
+                eventRandom();
+            
+
+            locationTracker++;
+        });
+
+
+        // global Variables
+        var randomEvents = ['flat tire', 'pulled over', 'traffic jam', 'bathroom break', 'out of fuel'];
+
+        var timer = 300;
+
+
+        var tire = 1; //sets tire value to true
+        var timeFactor = 5;
+        var food = 100;
+        var water = 100;
+        var gas = 100;
+        var distance = 500;
+        var momentTimer;
+
+
+
+        function runEvent() {
+            var eventOccurs = randomEvents[Math.floor(Math.random()*randomEvents.length)];
+            console.log(randomizer)
+            switch (randomizer) {
+                case 'flat tire': 
+                // replace tire if you have one OR wait for AAA
+                if (tire) {
+                    tire = 0 //sets value to false
+                    confirm("Do you want to wait for AAA or use your spare tire?");
+                }else {
+                    alert("You must wait for AAA");
+                }
+                break;
+                case 'pulled over':
+                    alert("you have been pulled over! You lost time and have to pay a fine of $150")
+                break;
+                case 'traffic jam': 
+>>>>>>> origin
 
         
         if (timeFactor == 0) {
@@ -85,12 +173,62 @@ $(document).ready(function () {
             $("#cash-remaining").text("Cash: ") + cash;
             $("#distance-remaining").text("Distance Remaining: ") + distance;
         }
+<<<<<<< HEAD
        
         locationTracker++;
         eventTracker++;
     };
 
     travel();
+=======
+        // given a certain probability, an event will be called.
+        // if the event is not called, timer resets to 5 (or whatever interval is decided)
+        // if the event is called, 
+        };
+
+    // function displayEvent() {
+    //     $("#gamePlay").show().append();
+    // };
+
+
+// })
+})
+
+function checkTire() {
+    if (tire = 1) {
+        choices = ["Replace your own tire","Call AAA","Cry"];
+            if (this.choices[0]) {
+                $("#eventBox").text("You replace your own tire and lose 5 minutes.");
+                tire--;
+                timer -= 5;
+                travel();
+            }
+            else if (this.choices[2]) {
+                $("#eventBox").text("You decide to cry and waste more time. Ten minutes later you finally calm down.");
+                timer -= 10;
+                checkTire();
+            }
+            else {
+                $("#eventBox").text("You have to call AAA and lose 30 minutes.");
+                timer -= 30;
+                travel();
+            }
+    }
+    else {
+        choices = ["Call AAA","Cry"]
+            if (this.choices[2]) {
+                $("#eventBox").text("You decide to cry and waste more time. Ten minutes later you finally calm down.");
+                timer -= 10;
+                checkTire();
+            }
+            else {
+                $("#eventBox").text("You have to call AAA and lose 30 minutes.");
+                timer -= 30;
+                travel();
+            }
+    }
+}
+>>>>>>> origin
 
 
 // function checkTire() {
@@ -255,6 +393,13 @@ $(document).ready(function () {
 //     $("#eventBox").text("Nice try - but YOU LOSE! Try again?");
 // }
 
+<<<<<<< HEAD
 // function gameWin() {
 //     $("#eventBox").text("Well done! You made it - congratulations! You win!");
 })
+=======
+function gameWin() {
+    $("#eventBox").text("Well done! You made it - congratulations! You win!");
+}
+
+>>>>>>> origin
