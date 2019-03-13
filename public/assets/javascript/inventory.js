@@ -5,7 +5,7 @@ function postInventory() {
         food: food,
         water: water,
         gas: gas,
-        tire: tire
+        
     }
     $.post('api/inventory', newInventory).then(function (data) {
         console.log(data);
