@@ -1,7 +1,3 @@
-var locationTracker = 0; 
-var totalDistance = 280;
-var nextLocation = 40;
-
 function Location(place, route, ableToPurchase, event, type) {
     this.place = place;
     this.route = route;

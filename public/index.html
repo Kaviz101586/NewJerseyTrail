@@ -186,21 +186,28 @@
     </div>
 </div>
 <!-- Modal/New Tech -->
-<div id="options"></div>
-<!--Call your modal-->
-<!-- <a id="demo01" href="#animatedModal">DEMO01</a> -->
-<!--DEMO01-->
-<div id="animatedModal">
-    <!--THIS IS IMPORTANT! to close the modal, the class name has to match the name given on the ID  class="close-animatedModal" -->
-    <div class="close-animatedModal">
-        <!-- CLOSE MODAL -->
+<div class="modal fade" id="eventsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header" style="display: none" id="response">
+          <h5 class="modal-title" id="modalTitle"></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="modalText">
+        </div>
+        <div class="modal-footer" id="modalBtnDiv">
+        </div>
+      </div>
     </div>
-    <div class="modal-content">
-        <!--Your modal content goes here-->
-    </div>
-</div>
-<div class="div-to-be-hidden"></div>
+  </div>
+
+
+
 <script type="text/javascript" src="assets/javascript/app.js"></script>
 <script type="text/javascript" src="assets/javascript/inventory.js"></script>
+<script type="text/javascript" src="assets/javascript/locations.js"></script>
+
 </body>
 </html>
