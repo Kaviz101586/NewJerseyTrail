@@ -14,6 +14,7 @@ var intervalId;
 var locationTracker = 0;
 var userSelect;
 
+
 function Location(place, route, ableToPurchase, event, type) {
     this.place = place;
     this.route = route;
@@ -94,6 +95,7 @@ $(document).ready(function () {
 
     // More pre-game page logic
     $("#start-button").on("click", function () {
+  
         $("#welcome-page").hide();
         $("#info-page").show();
     });
@@ -101,6 +103,8 @@ $(document).ready(function () {
     $("#startGame-button").on("click", function () {
         $("#info-page").hide();
         $("#gamePlay").show();
+        postInventory();
+        getInventory();
         travel();
         $(".timer").show();
         intervalId = setInterval(travel, 1300);

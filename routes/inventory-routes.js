@@ -10,6 +10,18 @@ module.exports = function (app) {
         });
     });
 
+    app.get("/api/newInventory", function(req, res){
+        db.Inventory.findOne({
+            limit: 1,
+            order: [['createdAt', 'DESC']]
+        }).then(function(data){
+            console.log(data);
+            res.json(data)
+        });
+    });
+
+
+
     // route to a specific id
     app.get("/api/inventory/:id", function (req, res) {
         db.Inventory.findAll({

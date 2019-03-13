@@ -5,7 +5,7 @@ module.exports = function (sequelize, DataTypes) {
     water: DataTypes.INTEGER,
     cash: DataTypes.INTEGER,
     gas: DataTypes.INTEGER,
-    tire: DataTypes.BOOLEAN
+
     
   }, {
     timestamp: false,
