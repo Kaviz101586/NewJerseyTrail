@@ -1,12 +1,12 @@
 // global Variables
-var timer = 18000;
+var timer = 300;
 var tire = 1; //sets tire value to true
 var cash = 200
 var timeFactor = 3;
 var food = 100;
 var water = 100;
 var gas = 100;
-var distance = 280;
+var distance = 240;
 var momentTimer;
 var eventTracker = 0;
 var nextLocation = 40;
@@ -39,25 +39,25 @@ var eventsArray = [
     {
         event: "Driving through some local streets, you hit a pothole (of course) and pop your tire. What do you do?",
         choices: ["Replace your own tire", "Call AAA", "Cry"],
-        responses: ["You replace your own tire and lose 5 minutes.","You have to call AAA and lose 30 minutes.", "You decide to cry and waste more time. Ten minutes later you finally calm down."],
+        responses: ["You replace your own tire and lose 5 minutes.","You have to call AAA and lose 30 minutes.", "You decide to cry on the side of the road. An hpur later, someone's stopped and helped you on yor way again."],
         name: "checkTire"
     },
     {
-        event: "In the distance you see a hitchhiker. You're running low on cash, and if you take them they'll give you some gas money - BUT it could significantly delay your trip. What do you do?",
-        choices: ["Let them in", "Keep going"],
-        responses: ["Their stop is on your way! They give you 20 bucks for gas!","They're insane and pull a gun on you, taking your car and your cash. At least you're alive!","They're going slightly out of the way - you lose 15 minutes"],
+        event: "In the distance you see a hitchhiker. Sure, you know its illegal in NJ, but someone to ride with might be fun! What do you do?",
+        choices: ["Keep going", "Let them in", "Take them to breakfast!"],
+        responses: ["Wave as you drive by!", "Their stop is on your way! Way to make a new friend!","They're insane and pull a gun on you, threatening to take your car and cash - but diving out the speeding car at the last second for some reasons. You lose an hour but at least you're alive!"],
         name: "hitchhiker"
     },
     {
         event: "As you drive down the highway, you run into a ton of shore traffic! What do you do now?",
-        choices: ["Stay the course", "Take a detour"],
-        responses: ["Traffic cleared up! No time lost!","Traffic did not clear. Lost 30 minutes.","Successful detour! No time lost!","Detour took you way out of the way. Lost 15 minutes."],
+        choices: ["Stay the course", "Take a detour", "Stop and get some food, and hope the traffic clears!"],
+        responses: ["Traffic cleared up! No time lost!","Detour took you way out of the way. Lost 30 minutes.", "You knew that was going to go poorly for you, right? Another hour shot. Womp womp"],
         name: "traffic"
     },
     {
-        event: "In an attempt to make up time, you speed down the highway. Rut roh! The cops caught you and pulled you over. Do you:",
-        choices: ["Attempt to bribe the cop and possibly make up more time", "Pay the fine immediately to save on losing more time"],
-        responses: ["They accepted - you speed away and manage to gain back 10 minutes.","They laughed at you and arrest you on the spot. Good game."] ,
+        event: "You need to stop at a rest stop. Do you:",
+        choices: ["Go to Dunkin'", "Go to Cinnabon", "Go to Starbucks"],
+        responses: ["Short line, because everyone knows America runs on Dunkin'. Only took 5 minutes!","Got the bun in record time, but obviously ate it while it was hot. You lost another 30, but TOTALLY worth it.", "That's what you get trying to purchase designer coffee."] ,
         name: "speeding"
     },
     // {
@@ -68,14 +68,14 @@ var eventsArray = [
     // },
     {
         event: "Driving through the streets of the city, you get swarmed by a horde of gang members who stop your car and demand you give them $100. Do you:",
-        choices: ["Pay the toll", "Attempt to speed away"],
-        responses: ["Cool. Move along - they let you by.", "You manage to escape! Well done! Pretty risky...", "You tear out of there alive, but the cops catch up to you on the highway", "They shot you as you drove away. Too bad."],
+        choices: ["Pay the toll", "Try to reason with them.","Attempt to speed away"],
+        responses: ["Cool. Move along - they let you by.", "You manage to escape! Well done! Pretty risky...", "Great idea, genius. They give chase and it takes you a while to lose them."],
         name: "gang"
     },
     {
         event: "You get within Cape May early, and decide to stop at Ocean City for some taffy. Yum! Do you:",
-        choices: ["Buy taffy for the wedding present!", "Buy all the taffy you can!!!!"], 
-        responses: ["That's a lovely present. Well done.","TAFFY!!!!!!"],
+        choices: ["Buy taffy for the wedding present!", "Buy all the taffy you can!!!!", "EAT ALL THE TAFFY!"], 
+        responses: ["That's a lovely present. Well done.","TAFFY!!!!!!","TAFFY!!!!!!"],
         name: "taffy"
     }
 ]
@@ -116,15 +116,20 @@ $(document).ready(function () {
     //     $("#storeFront").show();
     // });
 
-    function runEvent() {
-        for (var i = 0; i < eventsArray.length; i++)
-            eventsArray[i].function;
-    }
+    // function runEvent() {
+    //     for (var i = 0; i < eventsArray.length; i++)
+    //         eventsArray[i].function;
+    // }
 
     function travel() {
-        momentTimer = moment.utc(timer * 1000).format("hh:mm:ss");
+        if (timer >= 60) {
+            momentTimer = moment.utc(timer * 60000).format("hh:mm:ss");
+        }
+        else if (timer < 60) {
+            momentTimer = moment.utc(timer * 60000).format("mm:ss");
+        }
         $(".gameImage").html("<img src='/assets/images/driving-cat.gif' id='game-image'>");
-        timer -= 60
+        timer -= 1;
         timeFactor -= 1;
         $(".timer").text(momentTimer);
 
@@ -137,7 +142,7 @@ $(document).ready(function () {
         $("#tires-remaining").text(tire);
 
 
-        if (timeFactor == 0) {
+        if (timeFactor == 0 && nextLocation > 0) {
             nextLocation -= 20;
             distance -= 20;
             food -= 1;
@@ -153,14 +158,22 @@ $(document).ready(function () {
             timeFactor = 3;
         }
 
-        if (nextLocation < 0) {
+        else if (nextLocation ==  0) {
+
             clearInterval(intervalId);
             populateModal();
-            passThroughChoice();
+            // passThroughChoice();
             // runLocationQuery();
             // runEvent();
             
         }
+
+        else if (distance == 0 && nextLocation ==0) {
+            timeFactor = -1;
+            gameWin();
+        }
+
+
     }
 
 
@@ -171,61 +184,68 @@ $(document).ready(function () {
         $("#modalText").empty();
         $("#eventsModal").modal('show');
         $("#modalText").append(text)
-            for (var i = 0; i < eventsArray[eventTracker].choices.length; i++) {
-                
-                var choiceBtn = $("<button>")
-                    .addClass("choice-button btn ")
-                    .attr("id", "btn" + i)
-                    .attr("data-choice", eventsArray[eventTracker].choices[i])
-                    .attr("data-dismiss", "modal")
-                    .text(eventsArray[eventTracker].choices[i]);
-                
-                $("#modalBtnDiv").append(choiceBtn);
-            }
-        // $(".choice-button").on("click", function () {
-        //     userSelect = "data-choice".val()
-        // });
-        eventTracker++;
-        
-    }
+        for (var i = 0; i < eventsArray[eventTracker].choices.length; i++) {
+
+            var choiceBtn = $("<button>")
+                .addClass("choice-button btn ")
+                .attr("data-choice", eventsArray[eventTracker].choices[i])
+                .attr("data-response", eventsArray[eventTracker].responses[i])
+                .attr("data-dismiss", "modal")
+                .text(eventsArray[eventTracker].choices[i]);
+
+            $("#modalBtnDiv").append(choiceBtn);
+        }
+        // dynamically load responses after clicking choiceBtn
+        $(".choice-button").on('click', function () {
+            var responseText = $(this).attr("data-response");
+
+            $("#modalBtnDiv").empty();
+            $("#modalText").empty();
+            $("#eventsModal").modal('show');
+            $("#modalText").append(responseText)
+        })
+    };
     
     function passThroughChoice() {
-
+            clearInterval(intervalId);
         // if($(this).attr("data-choice")) {
-
-            var userSelect = $(this).attr("data-choice")
+            var userSelect = $(this).attr("data-choice");
             console.log(userSelect);
-
             
-            if (userSelect == eventsArray[eventTracker].choices[0]) {
+            if (userSelect === eventsArray[eventTracker].choices[0]) {
                 // $("#modalText").hide();
                 // $("#modalBtnDiv").hide();
                 // $("#response").show();
-                $("#response").text(eventsArray[eventTracker].responses[0]);
-                tire--;
+                console.log("choice 1 selected");
+                $("#eventsModal2").modal('show');
+                $("#response").append(eventsArray[eventTracker].responses[0]);
                 timer -= 5;
                 nextLocation = 40;
                 intervalId = setInterval(travel, 1300);
+                eventTracker++;
             }
-            else if (userSelect == eventsArray[eventTracker].choices[1]) {
+            else if (userSelect === eventsArray[eventTracker].choices[1]) {
                 // $("#modalText").hide();
                 // $("#modalBtnDiv").hide();
                 // $("#response").show();
-                console.log(userSelect);
+                console.log("choice 2 selected");
                 $("#response").text(eventsArray[eventTracker].responses[1]);
                 timer -= 30;
                 nextLocation = 40;
                 intervalId = setInterval(travel, 1300);
+                eventTracker++;
             }
-            else if (userSelect == eventsArray[eventTracker].choices[2]) {
+            else if (userSelect === eventsArray[eventTracker].choices[2]) {
                 // $("#modalText").hide();
                 // $("#modalBtnDiv").hide();
                 // $("#response").show();
+                console.log("choice 3 selected");
                 $("#response").text(eventsArray[eventTracker].responses[2]);
-                timer -= 10;
+                timer -= 60;
                 // checkTire();
                 nextLocation = 40;
                 intervalId = setInterval(travel, 1300);
+                eventTracker++;
             }
         // }
 
@@ -243,37 +263,37 @@ $(document).ready(function () {
     }
 
 
-    function checkTire() {
-        if (tire == 1) {
-            choices = ["Replace your own tire", "Call AAA", "Cry"];
-            responses = ["You replace your own tire and lose 5 minutes.","You have to call AAA and lose 30 minutes.","You decide to cry and waste more time. Ten minutes later you finally calm down."]
+    // function checkTire() {
+    //     if (tire == 1) {
+    //         choices = ["Replace your own tire", "Call AAA", "Cry"];
+    //         responses = ["You replace your own tire and lose 5 minutes.","You have to call AAA and lose 30 minutes.","You decide to cry and waste more time. Ten minutes later you finally calm down."]
            
-            populateModal();
+    //         populateModal();
 
           
-        }
-        else if (tire == 0) {
-            choices = ["Call AAA", "Cry"];
-            populateModal();
-            if (userSelect == this.choices[1]) {
-                // $("#modalText").hide();
-                // $("#modalBtnDiv").hide();
-                // $("#response").show();
-                $("#response").text("You decide to cry and waste more time. Ten minutes later you finally calm down.");
-                timer -= 10;
-                checkTire();
-            }
-            else if (userSelect == this.choices[0]) {
-                // $("#modalText").hide();
-                // $("#modalBtnDiv").hide();
-                // $("#response").show();
-                $("#response").text("You have to call AAA and lose 30 minutes.");
-                timer -= 30;
-                intervalId = setInterval(travel, 1300);
+    //     }
+    //     else if (tire == 0) {
+    //         choices = ["Call AAA", "Cry"];
+    //         populateModal();
+    //         if (userSelect == this.choices[1]) {
+    //             // $("#modalText").hide();
+    //             // $("#modalBtnDiv").hide();
+    //             // $("#response").show();
+    //             $("#response").text("You decide to cry and waste more time. Ten minutes later you finally calm down.");
+    //             timer -= 10;
+    //             checkTire();
+    //         }
+    //         else if (userSelect == this.choices[0]) {
+    //             // $("#modalText").hide();
+    //             // $("#modalBtnDiv").hide();
+    //             // $("#response").show();
+    //             $("#response").text("You have to call AAA and lose 30 minutes.");
+    //             timer -= 30;
+    //             intervalId = setInterval(travel, 1300);
                 
-            }
-        }
-    }
+    //         }
+    //     }
+    // }
 
     //     function checkTire() {
     //         if (tire == 1) {
@@ -433,9 +453,10 @@ $(document).ready(function () {
     //         $("#eventBox").text("Nice try - but YOU LOSE! Try again?");
     //     }
 
-    //     function gameWin() {
-    //         $("#eventBox").text("Well done! You made it - congratulations! You win!");
+        function gameWin() {
+
+            $(".gameImage").html("<img src='/assets/images/you-win.webp' id='winning-image'>");
+        }
 
 $(document).on("click",".choice-button", passThroughChoice);
-
 })
