@@ -79,7 +79,7 @@ li {
     margin-top: 10px;
     margin-bottom: 10px;
 }
-#game-image {
+#game-image, #winning-image, #losing-image {
     height: 100%;
     width:60%;
     display: block;
