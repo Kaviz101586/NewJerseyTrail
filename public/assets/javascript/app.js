@@ -38,13 +38,13 @@ var eventsArray = [
     {
         event: "Driving through some local streets, you hit a pothole (of course) and pop your tire. What do you do?",
         choices: ["Replace your own tire", "Call AAA", "Ugly Cry"],
-        responses: ["You replace your own tire and lose 5 minutes.","You have to call AAA and lose 30 minutes.", "You decide to cry on the side of the road. An hpur later, someone's stopped and helped you on yor way again."],
+        responses: ["You replace your own tire and lose 5 minutes.","You have to call AAA and lose 30 minutes.", "You decide to cry on the side of the road. An hour later, someone's stopped and helped you on yor way again."],
         name: "checkTire"
     },
     {
         event: "In the distance you see a hitchhiker. Sure, you know its illegal in NJ, but someone to ride with might be fun! What do you do?",
         choices: ["Keep going", "Let them in", "Take them to breakfast!"],
-        responses: ["Wave as you drive by!", "Their stop is on your way! Way to make a new friend!","They're insane and pull a gun on you, threatening to take your car and cash - but diving out the speeding car at the last second for some reasons. You lose an hour but at least you're alive!"],
+        responses: ["Wave as you drive by!", "Their stop is on your way! Way to make a new friend!","They're insane and pull a gun on you, threatening to take your car and cash - but decide to dive out the speeding car at the last second for some reason. You lose an hour but at least you're alive!"],
         name: "hitchhiker"
     },
     {
