@@ -454,7 +454,7 @@ $(document).ready(function () {
     //     }
 
         function gameWin() {
-
+            postInventory();
             $(".gameImage").html("<img src='/assets/images/you-win.webp' id='winning-image'>");
         }
 
