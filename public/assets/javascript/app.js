@@ -229,6 +229,7 @@ $(document).ready(function () {
     }
 
         function gameEnd() {
+            postInventory();
             $(".distanceLeft").text("Distance Remaining: " + 0 + " miles");
             $(".eventTrigger").text("Distance to Next Location: " + 0 + " miles");
             $(".timer").text(0);
@@ -237,6 +238,7 @@ $(document).ready(function () {
 
         function gameWin() {
             nextLocation = 0;
+            postInventory();
             $(".gameImage").html("<img src='/assets/images/you-win.webp' id='winning-image'>");
         }
 
