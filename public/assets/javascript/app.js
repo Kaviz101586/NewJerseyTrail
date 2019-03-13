@@ -5,6 +5,7 @@ var timeFactor = 3;
 var food = 100;
 var water = 100;
 var gas = 100;
+var tires = 1;
 var distance = 240;
 var momentTimer;
 var eventTracker = 0;
@@ -120,7 +121,8 @@ $(document).ready(function () {
         $("#food-remaining").text(food);
         $("#water-remaining").text(water);
         $("#gas-remaining").text(gas);
-        $("#cash-remaining").text(cash);
+        $("#tires-remaining").text(tires);
+        $("#cash-remaining").text("$" + cash);
         $(".distanceLeft").text("Distance Remaining: " + distance + " miles");
         $(".eventTrigger").text("Distance to Next Location: " + nextLocation + " miles");
 
@@ -135,7 +137,8 @@ $(document).ready(function () {
             $("#food-remaining").text(food);
             $("#water-remaining").text(water);
             $("#gas-remaining").text(gas);
-            $("#cash-remaining").text(cash);
+            $("#tires-remaining").text(tires);
+            $("#cash-remaining").text("$" + cash);
             $("#distance-remaining").text("Distance Remaining: " + distance + " miles");
             timeFactor = 3;
         }
@@ -209,6 +212,18 @@ $(document).ready(function () {
                 // nextLocation = 40;
                 intervalId = setInterval(travel, 1300);
                 eventTracker++;
+
+                if (userSelect === eventsArray[0].choices[0]) {
+                    tires -= 1;
+                }
+
+                if (userSelect === eventsArray[3].choices[0]) {
+                    cash -= 5;
+                }
+
+                if (userSelect === eventsArray[4].choices[0]) {
+                    cash -= 100;
+                }
             }
             else if (userSelect === eventsArray[eventTracker].choices[1]) {
                 console.log("choice 2 selected");
@@ -217,6 +232,10 @@ $(document).ready(function () {
                 // nextLocation = 40;
                 intervalId = setInterval(travel, 1300);
                 eventTracker++;
+
+                if (userSelect === eventsArray[3].choices[1]) {
+                    cash -= 5;
+                }
             }
             else if (userSelect === eventsArray[eventTracker].choices[2]) {
                 console.log("choice 3 selected");
@@ -225,21 +244,29 @@ $(document).ready(function () {
                 // nextLocation = 40;
                 intervalId = setInterval(travel, 1300);
                 eventTracker++;
+
+                if (userSelect === eventsArray[2].choices[2]) {
+                    cash -= 10;
+                }
+
+                if (userSelect === eventsArray[3].choices[2]) {
+                    cash -= 15;
+                }
             }
     }
 
         function gameEnd() {
-            postInventory();
             $(".distanceLeft").text("Distance Remaining: " + 0 + " miles");
             $(".eventTrigger").text("Distance to Next Location: " + 0 + " miles");
             $(".timer").text(0);
             $(".gameImage").html("<img src='/assets/images/you-lose.gif' id='losing-image'>");
+            postInventory();
         }
 
         function gameWin() {
             nextLocation = 0;
-            postInventory();
             $(".gameImage").html("<img src='/assets/images/you-win.webp' id='winning-image'>");
+            postInventory();
         }
 
 $(document).on("click",".choice-button", passThroughChoice);
